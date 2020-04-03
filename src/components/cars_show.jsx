@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
-class CarsShow extends Component {
+class CarsPost extends Component {
   render() {
     if (!this.props.car) {
       return <p>Loading...</p>;
@@ -21,4 +24,10 @@ class CarsShow extends Component {
   }
 }
 
-export default CarsShow;
+function mapStateToProps(state, ownProps) {
+  const idFromUrl = parseInt(ownProps.match.params.id, 10); // From URL
+  const car = state.cars.find(c => c.id === idFromUrl);
+  return { car };
+}
+
+export default connect(mapStateToProps)(CarsPost);
