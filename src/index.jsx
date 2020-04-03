@@ -9,15 +9,28 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 
+import carsReducer from './reducers/cars_reducer';
+
+const garageName = prompt("What is your garage?");
+
+const initialState = {
+  garage: garageName,
+  cars: []
+};
+
+
 const reducers = combineReducers({
-  // key: reducer
+  garages: (state = null, action) => state,
+  cars: carsReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
 
+const store = createStore(reducers, initialState, middlewares);
+
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={store}>
     <Router history={history}>
       <Switch>
         TODO
