@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 class CarsNew extends Component {
   render() {
     return (
-      <h1>hey</h1>
+      <div>
+        <form>
+          <input />
+        </form>
+      </div>
     );
+    }
   }
 }
 
