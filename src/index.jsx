@@ -6,12 +6,11 @@ import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
-
 import { reducer as formReducer } from 'redux-form';
 
 import CarsIndex from './components/cars_index';
+import CarsShow from './components/cars_show';
 import CarsNew from './components/cars_new';
-import CarsPost from './components/cars_show';
 
 // import '../assets/stylesheets/application.scss';
 
@@ -43,7 +42,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={CarsIndex} />
         <Route path="/cars/new" exact component={CarsNew} />
-        <Route path="/cars/:id" component={CarsPost} />
+        <Route path="/cars/:id" component={CarsShow} />
       </Switch>
     </Router>
   </Provider>,
